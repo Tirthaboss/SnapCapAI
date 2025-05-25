@@ -8,10 +8,17 @@ const redirectToPage = async (url) => {
         window.location.href = url;
     } else {
         alert("You do not have permission to access this page.");
+        window.location.href = "https://snapcapai.sreamlit.app"                            
     }
 };
 
-// Example usage:
-document.getElementById("redirectButton").addEventListener("click", () => {
-    redirectToPage("https://example.com/protected-page");
+                                    
+document.addEventListener("https://snapcapai.sreamlit.app";
+    }
+};
+
+// Redirect to the page on page load
+document.addEventListener("DOMContentLoaded", async () => {
+    const redirectUrl = "https://snapcapai.sreamlit.app";
+    await redirectToPage(redirectUrl);
 });
