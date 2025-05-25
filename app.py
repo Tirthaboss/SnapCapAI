@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 import streamlit as st
 
 st.write("App is coming soon")
-=======
 # Import Modules
 import smtplib
 from email.mime.multipart import MIMEMultipart
