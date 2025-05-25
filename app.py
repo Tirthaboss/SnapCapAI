@@ -10,11 +10,6 @@ import io
 import google.generativeai as genai
 import streamlit.components.v1 as components
 
-components.html("""
-    <head>
-        <meta name="google-site-verification" content="Ng6NNOx9ynpYoabNgg9rDUiAMsNvcnPr1ljSC4rX7f0" />
-    </head>
-""")
 
 # Streamlit Page Config
 st.set_page_config(
