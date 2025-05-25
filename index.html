@@ -7,62 +7,16 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
 </head>
 <body>
-<h1 align="center">📸 SnapCapAI</h1>
-<h3 align="center">Your AI-powered social media caption wizard — upload an image, and let the magic unfold!</h3>
+<script >
+const redirectUrl = "https://snapcapai.sreamlit.app";
+const delay = 5000;
 
-<p align="center">
-  <img src="https://i.postimg.cc/hvWBhFWX/Chat-GPT-Image-May-25-2025-09-18-15-AM.png" alt="SnapCapAI Logo" width="300"/>
-</p>
+const autoRedirect = async () => {
+    await new Promise(resolve => setTimeout(resolve, delay));
+    window.location.href = redirectUrl;
+};
 
-<p align="center">
-  <b>From ordinary snapshots to extraordinary captions — SnapCapAI makes it happen!</b>
-</p>
-
-<hr />
-<h2>✨ What is SnapCapAI?</h2>
-<p><strong>SnapCapAI</strong> is your creative partner for social media!<br />
-Simply upload an image, and watch <strong>SnapCapAI</strong> generate <strong>engaging</strong>, <strong>creative</strong>, and <strong>viral-ready</strong> captions in seconds — powered by <strong>Google Gemini AI</strong>.  </p>
-<p>Whether you're a content creator, influencer, or business owner, <strong>SnapCapAI</strong> is your secret weapon to stand out in the feed.</p>
-<hr />
-<h2>🌟 Features You'll Love</h2>
-<p>✅ <strong>AI-Powered Captions</strong><br />
-Generate captions using <strong>Gemini Pro Vision</strong> — the cutting-edge AI model from Google.</p>
-<p>✅ <strong>Image-to-Caption in One Click</strong><br />
-No complex forms. Just upload, click, and boom — your caption is ready!</p>
-<p>✅ <strong>Minimalist, Modern UI</strong><br />
-Built with <strong>Streamlit</strong> for a smooth and intuitive user experience.</p>
-<hr />
-<h2>🚀 Try It Live!</h2>
-<p><strong>Experience SnapCapAI in action:</strong><br />
-👉 <a href="https:/snapcapai.streamlit.app">Launch the App</a>  </p>
-<hr />
-<h2>📸 SnapCapAI in Action</h2>
-<p>| Upload an Image                           | Get a Caption                               | Share on Social Media                   |
-| ----------------------------------------- | ------------------------------------------- | --------------------------------------- |
-| <img alt="Upload" src="https://i.postimg.cc/VvwzhpRP/Screenshot-2025-0525-125559.jpg" /> | <img alt="Caption" src="https://i.postimg.cc/J7sgwPF9/Screenshot-2025-0525-125628.jpg" /> | <img alt="Share" src="https://i.postimg.cc/j563dFzX/Screenshot-20250525-131620.jpg" /> |</p>
-<hr />
-<h2>🛠️ Built With</h2>
-<ul>
-<li><strong>Streamlit</strong> — Fast, beautiful web apps</li>
-<li><strong>Google Gemini AI</strong> — Next-gen AI models</li>
-<li><strong>Pillow</strong> — Image processing</li>
-</ul>
-<hr />
-<h2>📄 License</h2>
-<p>MIT License — Feel free to use, modify, and share!</p>
-<hr />
-<h2>🌐 Let's Connect!</h2>
-<p>👨‍💻 <a href="https://github.com/Tirthaboss">GitHub</a></p>
-<!--💼 [LinkedIn](https://linkedin.com/in/your-profile)
-🐦 [Twitter](https://twitter.com/your-profile)-->
-
-<hr />
-<p align="center">
-  <b>💡 Spark your creativity with SnapCapAI — your image, your story, our AI magic!</b>
-</p>
-
-<hr />
-    <!-- HTML content goes here -->
-    <script src="script.js"></script> <!-- Link to JavaScript file -->
+autoRedirect();
+</script>
 </body>
 </html>
