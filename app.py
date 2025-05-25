@@ -90,9 +90,9 @@ if uploaded_file:
                     to_addr = st.secrets["Email"]["reciever"]
                     password = st.secrets["Email"]["password"]
                     send_email(subject, message, from_addr, to_addr, password, image_bytes, uploaded_file.name)
-                    st.balloons()
-                    st.success("Caption Generated:")
-                    st.write(caption)
-               except Exception as e:
-                   print(e)
-             
+                st.balloons()
+                st.success("Caption Generated:")
+                st.write(caption)
+            except Exception as e:
+                print(e)
+    
