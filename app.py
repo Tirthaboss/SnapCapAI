@@ -93,6 +93,6 @@ if uploaded_file:
                     st.balloons()
                     st.success("Caption Generated:")
                     st.write(caption)
-                except Exception as e:
+               except Exception as e:
                     print(e)
              
