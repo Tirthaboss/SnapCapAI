@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnapCapAi</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapCapAI - Image Caption Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<!--p> This website is not available Now so we redirect to main app</p>
-    <script>
-const redirectUrl = "https://snapcapai.streamlit.app/";
-const delay = 5000;
+  <div class="container">
+    <h1>📸 SnapCapAI - Generate Social Media Captions from Images</h1>
 
-const autoRedirect = async () => {
-    await new Promise(resolve => setTimeout(resolve, delay));
-    window.location.href = redirectUrl;
-};
+    <form id="captionForm">
+      <input type="text" id="name" placeholder="Your Name (Required)" required />
+      <input type="email" id="email" placeholder="Your Email (Required)" required />
+      <input type="file" id="imageUpload" accept="image/*" required />
 
-autoRedirect();
-</script-->
+      <button type="submit">Generate Caption</button>
+    </form>
 
+    <div id="previewContainer">
+      <h3>Uploaded Image:</h3>
+      <img id="preview" src="" alt="" />
+    </div>
 
-<iframe src="https://snapcapai.streamlit.app/?embed_options=show_padding,disable_scrolling,show_footer,dark_theme,show_colored_line,light_theme,show_toolbar"></iframe>
+    <div id="resultContainer">
+      <h3>Generated Caption:</h3>
+      <p id="captionText"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
