@@ -94,5 +94,5 @@ if uploaded_file:
                     st.success("Caption Generated:")
                     st.write(caption)
                except Exception as e:
-                    print(e)
+                   print(e)
              
