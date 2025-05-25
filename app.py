@@ -7,20 +7,22 @@ from email.mime.image import MIMEImage
 import streamlit as st
 from PIL import Image
 import io
-import google.generativeai as genai
+import torch
+from torchvision import transforms
+from transformers import BlipProcessor, BlipForConditionalGeneration
 
 # Streamlit Page Config
 st.set_page_config(
     page_title="SnapCapAI",
-    page_icon="https://i.postimg.cc/hvWBhFWX/Chat-GPT-Image-May-25-2025-09-18-15-AM.png",  # Replace with a valid path if local
+    page_icon="https://i.postimg.cc/hvWBhFWX/Chat-GPT-Image-May-25-2025-09-18-15-AM.png",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# Configure Gemini API
-api = st.secrets["AI"]["key"]
-genai.configure(api_key=api)
-model = genai.GenerativeModel("gemini-2.0-flash-preview-image-generation")
+# Load BLIP model
+processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+model.eval()
 
 # Email Sender Function
 def send_email(subject, message, from_addr, to_addr, password, image_bytes, image_name="image.png"):
@@ -63,7 +65,7 @@ name = st.text_input("Your Name (Required)")
 usermail = st.text_input("Your Email (Required)")
 
 if uploaded_file:
-    image = Image.open(uploaded_file)
+    image = Image.open(uploaded_file).convert('RGB')
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
     # Convert image to bytes
@@ -74,18 +76,17 @@ if uploaded_file:
     if st.button("Generate Caption"):
         with st.spinner("Generating caption..."):
             try:
-                # Generate caption using Gemini API
-                response = model.generate_content(
-                    [
-                        {"mime_type": "image/png", "data": image_bytes},
-                        {"text": "Generate a creative and engaging social media caption in different tone for this image."}
-                    ]
-                )
-                caption = response.text
+                # Preprocess image
+                inputs = processor(images=image, return_tensors="pt")
+
+                # Generate caption
+                out = model.generate(**inputs)
+                Caption = processor.decode(out[0], skip_special_tokens=True)
+
                 # Send email notification (if email provided)
                 if usermail:
-                    subject = f"{name or 'Someone'} used SnapCapAI"
-                    message = f"Name: {name or 'Unknown'}, Email: {usermail} used SnapCapAI to generate a caption."
+                    subject = f"{name} and {usermail} used SnapCapAI"
+                    message = Caption
                     from_addr = st.secrets["Email"]["sender"]
                     to_addr = st.secrets["Email"]["reciever"]
                     password = st.secrets["Email"]["password"]
@@ -94,5 +95,4 @@ if uploaded_file:
                 st.success("Caption Generated:")
                 st.write(caption)
             except Exception as e:
-                print(e)
-    
+                st.error(f"An error occurred: {e}")
