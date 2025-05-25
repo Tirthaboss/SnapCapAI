@@ -98,4 +98,3 @@ if uploaded_file:
                     st.write(caption)
 
              
->>>>>>> ed3732d (Install Project)
