@@ -1,6 +1,3 @@
-import streamlit as st
-
-st.write("App is coming soon")
 # Import Modules
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -15,7 +12,7 @@ import google.generativeai as genai
 # Streamlit Page Config
 st.set_page_config(
     page_title="SnapCapAI",
-    page_icon="img/icon.png",  # Replace with a valid path if local
+    page_icon="https://i.postimg.cc/hvWBhFWX/Chat-GPT-Image-May-25-2025-09-18-15-AM.png",  # Replace with a valid path if local
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -96,5 +93,6 @@ if uploaded_file:
                     st.balloons()
                     st.success("Caption Generated:")
                     st.write(caption)
-
+                except Exception as e:
+                    print(e)
              
