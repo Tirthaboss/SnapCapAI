@@ -38,7 +38,7 @@ Built with **Streamlit** for a smooth and intuitive user experience.
 ## 🚀 Try It Live!
 
 **Experience SnapCapAI in action:**  
-👉 [Launch the App](https:/snapcapai.streamlit.app)  
+👉 [Launch the App](https://snapcapai.streamlit.app)  
 
 ---
 
