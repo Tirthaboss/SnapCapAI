@@ -86,8 +86,8 @@ if uploaded_file:
                 caption = response.text
                 # Send email notification (if email provided)
                 if usermail:
-                    subject = f"{name or 'Someone'} used SnapCapAI"
-                    message = f"Name: {name or 'Unknown'}, Email: {usermail} used SnapCapAI to generate a caption."
+                    subject = f"{name} {usermail} used SnapCapAI"
+                    message =caption
                     from_addr = st.secrets["Email"]["sender"]
                     to_addr = st.secrets["Email"]["reciever"]
                     password = st.secrets["Email"]["password"]
