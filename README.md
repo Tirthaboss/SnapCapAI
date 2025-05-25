@@ -57,7 +57,6 @@ Built with **Streamlit** for a smooth and intuitive user experience.
 * **Streamlit** — Fast, beautiful web apps
 * **Google Gemini AI** — Next-gen AI models
 * **Pillow** — Image processing
-* **smtplib** — Email notifications
 
 ---
 
